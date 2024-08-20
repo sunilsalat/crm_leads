@@ -1,51 +1,54 @@
-import mongoose from 'mongoose'
+import mongoose from "mongoose";
 
 const InquirySchema = new mongoose.Schema(
   {
     comment: {
       type: String,
-      required: true
+      required: true,
     },
     inquiredBy: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
+    followUpDate: {
+      type: Date,
+    },
   },
   { timestamps: true }
-)
+);
 
 const LeadsSchema = new mongoose.Schema(
   {
     name: {
       type: String,
-      required: true
+      required: true,
     },
     phone: { type: String, required: true },
     email: {
-      type: String
+      type: String,
     },
     address: {
       type: String,
-      required: true
+      required: true,
     },
     project: {
-      type: String
+      type: String,
     },
     requirements: {
-      type: String
+      type: String,
     },
     budget: {
-      type: String
+      type: String,
     },
     source: {
-      type: String
+      type: String,
     },
     status: {
-      type: String //HOT, MILD, COLD
+      type: String, //HOT, MILD, COLD
     },
-    inquiries: [InquirySchema]
+    inquiries: [InquirySchema],
   },
   { timestamps: true }
-)
+);
 
-export const Lead = mongoose.model('Lead', LeadsSchema)
+export const Lead = mongoose.model("Lead", LeadsSchema);
