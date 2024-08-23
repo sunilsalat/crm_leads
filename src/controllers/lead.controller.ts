@@ -8,11 +8,13 @@ export const createLead = async (req: Request, res: Response) => {
 };
 
 export const addLeadInquiry = async (req: Request, res: Response) => {
-  const { leadId, comment } = req.body;
+  const { leadId, comment, followUpDate } = req.body;
   const { userId, name } = req.userInfo;
 
   let filter = { _id: leadId };
-  let data = { $push: { inquiries: { comment, inquiredBy: name } } };
+  let data = {
+    $push: { inquiries: { comment, inquiredBy: name, followUpDate } },
+  };
 
   const leadObj = await DALead.update(filter, data);
 
