@@ -5,9 +5,9 @@ import { AuthMiddleware, ThrowValidationErrors } from "../middlewares";
 const router = express.Router();
 
 // routerss
-router.post("/create", [], LeadController.createLead);
-router.post("/all", [], LeadController.getAllLeads);
-router.post("/comment", [], LeadController.addLeadInquiry);
-router.post("/read", [], LeadController.getLeadDetail);
+router.post("/create", [AuthMiddleware], LeadController.createLead);
+router.post("/all", [AuthMiddleware], LeadController.getAllLeads);
+router.post("/comment", [AuthMiddleware], LeadController.addLeadInquiry);
+router.post("/read", [AuthMiddleware], LeadController.getLeadDetail);
 
 export default router;

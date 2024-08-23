@@ -19,6 +19,7 @@ const PropertySchema = new mongoose.Schema(
     status: {
       type: String,
       enum: ["AVAILABLE", "PENDIG", "SOLD"],
+      default: "AVAILABLE",
     },
   },
   { timestamps: true }
